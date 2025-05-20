@@ -14,7 +14,19 @@ namespace Katchau.Model
         public Marca Marca { get; set; }
 
         [ForeignKey(nameof(Produto.Id))]
-        public int ProdutoId { get; set; }
+        public int? ProdutoId { get; set; }
         public Produto Produto { get; set; }
+        public DateTime DataInicio { get; set; }
+        public DateTime DataFim { get; set; }
+        public bool Ativo { get; set; }
+
+        public Promocao(float porcentagem, int marcaId, DateTime dataInicio, DateTime dataFim, int? produtoId)
+        {
+            Porcentagem = porcentagem;
+            MarcaId = marcaId;
+            ProdutoId = produtoId;
+            DataInicio = dataInicio;
+            DataFim = dataFim;
+        }
     }
 }

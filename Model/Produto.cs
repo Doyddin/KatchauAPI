@@ -12,5 +12,12 @@ namespace Katchau.Model
         [ForeignKey(nameof(Marca.Id))]
         public int MarcaId { get; set; }
         public Marca Marca { get; set; }
+
+        public Produto(string nome, float preco, int marcaId)
+        {
+            Nome = nome;
+            Preco = preco;
+            MarcaId = marcaId;
+        }
     }
 }

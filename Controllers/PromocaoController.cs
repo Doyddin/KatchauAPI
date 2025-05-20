@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Katchau.Model;
+using Katchau.Model.DTO;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -24,14 +26,16 @@ namespace Katchau.Controllers
 
         // POST api/<ValuesController>
         [HttpPost]
-        public ActionResult Post([FromBody] string value)
+        public ActionResult Post([FromBody] PromocaoDTO promocaoDto)
         {
-            if(value == null)
+            if (!ModelState.IsValid)
             {
-                return BadRequest("Tá vazio " + string.Empty);
+                return BadRequest(ModelState);
             }
 
-            return Ok(value);
+            Promocao promocao = promocaoDto.toModel(1);
+
+            return Ok(promocao);
         }
 
         // PUT api/<ValuesController>/5
