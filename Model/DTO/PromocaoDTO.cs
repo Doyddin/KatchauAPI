@@ -3,6 +3,7 @@
     public class PromocaoDTO
     {
         public float Porcentagem { get; set; }
+        public string Nome { get; set; }
         public string MarcaNome { get; set; }
         public int? ProdutoId { get; set; }
         public DateTime DataInicio { get; set; }

@@ -7,6 +7,7 @@ namespace Katchau.Model
     {
         [Key] public int Id { get; set; }
 
+        public string Nome { get; set; }
         public float Porcentagem { get; set; }
         
         [ForeignKey(nameof(Marca.Id))] 
